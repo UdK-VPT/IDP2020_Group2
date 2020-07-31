@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .header {
+    padding: 80px;
+    text-align: center;
+    background: #cc0099;
+    color: white;
+  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+#containerlogo {
+  height: 40vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  width: 200px;
+ margin: 0 auto;
+  }
+
+#logo {
+  width: 25vh;
+  height: 25vh;
+  background-color:#500;
+  border-radius: 2vh;
+  transform: rotate(45deg);
+
+}
+
+.line {
+  background-color: white;
+}
+
+.circle {
+  background-color: white;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 5vh;
+}
+
+#lineLong {
+  top: 11.5vh;
+  left: 2.5vh;
+  height: 2vh;
+  width: 80%;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+#lineShort1 {
+  top: 3vh;
+  height: 2vh;
+  width: 17.5vh;
+  position: relative;
+}
+#lineShort2 {
+  top: -7vh;
+  left: -3.5vh;
+  height: 2vh;
+  width: 17.5vh;
+  position: relative;
+  transform: rotate(90deg);
+}
+
+#circleOne {
+  top: -0.5vh;
+  left: 3.5vh;
+  position: relative;
+}
+
+#circleTwo {
+  top: -5.5vh;
+  left: 16.5vh;
+  position: relative;
+}
+
+#circleThree {
+  top: 2.5vh;
+  left: 16.5vh;
+  position: relative;
+}
+#circleFour {
+  top: -2.5vh;
+  left: 2.5vh;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  height: 70%;
+}
+
+
+.column11 {
+  width: 20%;
+
+}
+.column12 {
+  width: 70%;
+}
+
+/* Header/logo Title */
+.header {
+  padding:5%;
+  text-align: center;
+  background: white;
+  color: #500;
+  height:10%;
+}
+
+
+
+
+
+
+
+
+
+
+/* Style inputs */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #500;
+  color: white;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <div class="content">
+
+
+      <div class="column11">
+      <div class="header">
+      <div id="containerlogo">
+          <div id="logo">
+            <div id="lineLong" class="line"></div>
+            <div id="lineShort1"class="line"></div>
+            <div id="circleOne" class="circle"></div>
+            <div id="circleTwo" class="circle"></div>
+            <div id="circleThree" class="circle"></div>
+            <div id="lineShort2"class="line"></div>
+            <div id="circleFour" class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column11">
+  <div class="header">
+    <br><br><br><br>
+    <h1 style="font-size:50px; text-align: center; font-family:WildWest">Comfortable Together</h1>
+  </div>
+  </div>
+
+    <div class="column12">
+    <img src="./img/klab.JPG" style="height: 100%; width: 100%;">
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+  <div class="about-section">
+    <h1>Feedback</h1>
+    <p>Swing by for a cup of coffee, or leave us a message</p>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <img src="./img/Ayman.png" style="width:100%">
+    </div>
+    <div class="column">
+      <form action="/action_page.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+          <option value="kenya">kenya</option>
+          <option value="Egypt">Egypt</option>
+          <option value="Germany">Germany</option>
+          <option value="India">India</option>
+        </select>
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <h2>Important Links</h2>
+  <a href="./index.html" style="color: black">Home</a>
+  <br>
+  <a href="./about.html" style="color: black">Contact Us</a>
+  <br>
+  <a href="./references.html" style="color: black">Referances</a>
+</div>
+
+</body>
+</html>

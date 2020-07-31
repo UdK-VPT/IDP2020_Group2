@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#containerlogo {
+  height: 40vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  width: 200px;
+ margin: 0 auto;
+  }
+
+#logo {
+  width: 25vh;
+  height: 25vh;
+  background-color:#500;
+  border-radius: 2vh;
+  transform: rotate(45deg);
+
+}
+
+.line {
+  background-color: white;
+}
+
+.circle {
+  background-color: white;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 5vh;
+}
+
+#lineLong {
+  top: 11.5vh;
+  left: 2.5vh;
+  height: 2vh;
+  width: 80%;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+#lineShort1 {
+  top: 3vh;
+  height: 2vh;
+  width: 17.5vh;
+  position: relative;
+}
+#lineShort2 {
+  top: -7vh;
+  left: -3.5vh;
+  height: 2vh;
+  width: 17.5vh;
+  position: relative;
+  transform: rotate(90deg);
+}
+
+#circleOne {
+  top: -0.5vh;
+  left: 3.5vh;
+  position: relative;
+}
+
+#circleTwo {
+  top: -5.5vh;
+  left: 16.5vh;
+  position: relative;
+}
+
+#circleThree {
+  top: 2.5vh;
+  left: 16.5vh;
+  position: relative;
+}
+#circleFour {
+  top: -2.5vh;
+  left: 2.5vh;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  height: 70%;
+}
+
+
+.column11 {
+  width: 20%;
+
+}
+.column12 {
+  width: 70%;
+}
+
+/* Header/logo Title */
+.header {
+  padding:5%;
+  text-align: center;
+  background: white;
+  color: #500;
+  height:10%;
+}
+
+
+
+
+
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #500;
+  color: white;
+}
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+</style>
+</head>
+<body>
+
+
+
+  <div class="content">
+
+
+      <div class="column11">
+      <div class="header">
+      <div id="containerlogo">
+          <div id="logo">
+            <div id="lineLong" class="line"></div>
+            <div id="lineShort1"class="line"></div>
+            <div id="circleOne" class="circle"></div>
+            <div id="circleTwo" class="circle"></div>
+            <div id="circleThree" class="circle"></div>
+            <div id="lineShort2"class="line"></div>
+            <div id="circleFour" class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column11">
+  <div class="header">
+    <br><br><br><br>
+    <h1 style="font-size:50px; text-align: center; font-family:WildWest">Comfortable Together</h1>
+  </div>
+  </div>
+
+    <div class="column12">
+    <img src="./img/klab.JPG" style="height: 100%; width: 100%;">
+        </div>
+
+      </div>
+
+
+
+
+  <div class="about-section">
+    <h1>Our Refernces</h1>
+    <p>If your are intersted in our work kindly check the sources</p>
+  </div>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Object</th>
+    <th style="width:40%;">Source</th>
+  </tr>
+  <tr>
+    <td>W3School Website</td>
+    <td>https://www.w3schools.com/</td>
+  </tr>
+  <td>Lecture Notes</td>
+  <td>Prof. Dr. C. Nytsch-Geusen & M.Sc. C. Bahnhardt, Technische Universität Berlin, Berlin, Germany</td>
+</tr>
+  <tr>
+    <td>Google Maps</td>
+    <td>https://www.google.de/maps</td>
+  </tr>
+  <tr>
+    <td>Berlin, Germany</td>
+    <td>https://umnik.net/uploads/questions/2591/2f65/4fb6/0f0f/022c/a1b3/5a62/3d77_watermark.jpg</td>
+  </tr>
+  <tr>
+    <td>Saarland, Germany</td>
+    <td>https://www.liberale.de/sites/default/files/styles/2_columns652/public/uploads/2016/08/31/saar-st-2000x1125.jpg?itok=bHk0nsCy</td>
+  </tr>
+  <tr>
+    <td>Cairo, Egypt</td>
+    <td>http://static.1sapp.com/qupost/images/2019/04/11/1554989794822789291.jpg</td>
+  </tr>
+  <tr>
+    <td>Mokattam, Egypt</td>
+    <td>https://www.cheapoair.com/miles-away/wp-content/uploads/2019/03/shutterstock_148734164.jpg</td>
+  </tr>
+  <tr>
+    <td>Nairobi, Kenya</td>
+    <td>https://i.icanvas.com/JDR3?d=3&sh=h&p=1&s=xl&bg=g&t=1570486491</td>
+  </tr>
+  <tr>
+    <td>Fayoum, Egypt</td>
+    <td>https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/%D9%85%D8%B1%D9%83%D8%A8_%D9%88%D8%AD%D9%8A%D8%AF.jpg/275px-%D9%85%D8%B1%D9%83%D8%A8_%D9%88%D8%AD%D9%8A%D8%AF.jpg</td>
+  </tr>
+  <tr>
+    <td>Home page sources</td>
+    <td>https://nohat.cc/f/happy-millennial-couple-relaxing-on-comfortable-couch-together-at-home/5644378645200896-201903110020.html & https://thoroughlyreviewed.com/home-kitchen/most-comfortable-blanket/</td>
+  </tr>
+  <tr>
+    <td>Premium page sources</td>
+    <td>https://www.csb.gc.ca/wp-content/uploads/2015/07/img_premium-savings-bonds_002.jpg</td>
+  </tr>
+  <tr>
+    <td>Other sources</td>
+    <td>https://www.pngwing.com/de/free-png-nyhoo</td>
+  </tr>
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+<div class="footer">
+  <h2>Important Links</h2>
+  <a href="./index.html" style="color: black">Home</a>
+  <br>
+  <a href="./about.html" style="color: black">Contact Us</a>
+  <br>
+  <a href="./feedback.html" style="color: black">Feedback</a>
+</div>
+
+</body>
+</html>

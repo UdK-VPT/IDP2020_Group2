@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="MyGroup.css">
+<meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://assets.shiftr.io/js/mqtt-2.9.0.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://assets.shiftr.io/js/mqtt-2.9.0.js"></script>
+
+
+</head>
+
+
+<body>
+<div class="about-section">
+  <h1>My Group</h1>
+  <p>This page shows the 6 different places of our group members</p>
+  <p>Press on the 'Name' to show the instantaneous data graph</p>
+</div>
+
+<h2 style="text-align:center">Real Locations</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+      <h2><button class="button" onclick="draw('AS')">Ahmed sherif</button></h2>
+      <img src="./img/Ahmed.png" alt="Ahmed"  style="width:100%">
+        <p style="text-align:right" class="title">Mokattam, Cairo, Egypt</p>
+        <article>
+
+          <div class="row">
+            <div class="column1">
+              <div class="card">
+                <div class="container">
+          <h1>Temperature °C</h1>
+           <p id="demo1"></p>
+
+      <h1>Humidity %</h1>
+       <p id="demo2"></p>
+
+</div>
+       </div>
+          </div>
+          <div class="column1">
+            <div class="card">
+              <div class="container">
+                 <div style="text-align:center">
+                <h1>Comfort Status</h1>
+								 <button class="button" onclick="openForm()">Open Form</button>
+								<div class="containerform">
+								  <div class="columnform1">
+                <img src="./img/up.JPG" alt="comfortable" id='pic_AS' style="visibility: hidden; width:62%">
+								 </div>
+ 								  <div class="columnform2">
+                <img src="./img/down.JPG" alt="non-comfortable" id='pic2_AS' style="visibility: hidden; width:62%">
+								 </div>
+								  </div>
+
+
+<div class="form-popup" id="myForm">
+
+  <form  class="form-container">
+    <h1>Data Entry Ahmed</h1>
+
+    <label for="AC"><b>What is your upper comfort temprature?</b></label>
+    <input type="number" placeholder="36" id="upt_AS" name="upt" required>
+
+    <label for="window"><b>What is your lower comfort temprature?</b></label>
+    <input type="number" placeholder="20" id="lowt_AS" name="lowt" required>
+
+    <label for="fan"><b>What is your upper comfort humidity?</b></label>
+    <input type="number" placeholder="40" id="uph_AS" name="uph" required>
+
+    <label for="tempout"><b>What is your lower comfort humidity?</b></label>
+    <input type="number" placeholder="20" id ="lowh_AS" name="lowh" required>
+
+
+  </form>
+	    <input type="submit" class="btn" id ="submit_AS" onclick="myfunction();"><br/>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
+</div>
+    </div>
+       </div>
+          </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2><button class="button" onclick="draw('AH')">Ayman El Aydi</button></h2>
+      <img src="./img/Ayman.png" alt="Ayman"  style="width:100%">
+      <p style="text-align:right" class="title">Wedding, Berlin, Germany</p>
+      <article>
+        <div class="row">
+          <div class="column1">
+            <div class="card">
+              <div class="container" >
+        <h1>Temperature °C</h1>
+         <p id="demo3"></p>
+
+    <h1>Humidity %</h1>
+     <p id="demo4"></p>
+
+</div>
+     </div>
+        </div>
+        <div class="column1">
+          <div class="card">
+            <div class="container">
+               <div style="width:100%;text-align:center;margin:0 auto">
+								 <h1>Comfort Status</h1>
+	 							 <button class="button" onclick="openForm_AH()">Open Form</button>
+	 							<div class="containerform">
+	 								<div class="columnform1">
+	 							<img src="./img/up.JPG" alt="comfortable" id='pic_AH' style="visibility: hidden; width:62%">
+	 							 </div>
+	 								<div class="columnform2">
+	 							<img src="./img/down.JPG" alt="non-comfortable" id='pic2_AH' style="visibility: hidden; width:62%">
+	 							 </div>
+	 								</div>
+
+
+	 <div class="form-popup" id="myForm_AH">
+
+	 <form  class="form-container">
+	 	<h1>Data Entry Ayman</h1>
+
+	 	<label for="AC"><b>What is your upper comfort temprature?</b></label>
+	 	<input type="number" placeholder="36" id="upt_AH" name="upt" required>
+
+	 	<label for="window"><b>What is your lower comfort temprature?</b></label>
+	 	<input type="number" placeholder="20" id="lowt_AH" name="lowt" required>
+
+	 	<label for="fan"><b>What is your upper comfort humidity?</b></label>
+	 	<input type="number" placeholder="40" id="uph_AH" name="uph" required>
+
+	 	<label for="tempout"><b>What is your lower comfort humidity?</b></label>
+	 	<input type="number" placeholder="20" id ="lowh_AH" name="lowh" required>
+
+
+	 </form>
+	     <input type="submit" class="btn" id ="submit_AH" onclick="myfunction();"><br/>
+	 		<button type="button" class="btn cancel" onclick="closeForm_AH()">Close</button>
+
+	 </div>
+	 	</div>
+	 		 </div>
+	 				</div>
+	 				</div>
+	 			</article>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h2><button class="button" onclick="draw('IS')">Iscah Songa</button></h2>
+        <img src="./img/Iscah.png" alt="Iscah"  style="width:100%">
+        <p style="text-align:right" class="title">Nairobi, Kenya, Africa</p>
+        <article>
+
+          <div class="row">
+            <div class="column1">
+              <div class="card">
+                <div class="container" >
+          <h1>Temperature °C</h1>
+           <p id="demo5"></p>
+
+      <h1>Humidity %</h1>
+       <p id="demo6"></p>
+
+</div>
+       </div>
+          </div>
+          <div class="column1">
+            <div class="card">
+              <div class="container">
+								<div style="width:100%;text-align:center;margin:0 auto">
+									<h1>Comfort Status</h1>
+									<button class="button" onclick="openForm_IS()">Open Form</button>
+								 <div class="containerform">
+									 <div class="columnform1">
+								 <img src="./img/up.JPG" alt="comfortable" id='pic_IS' style="visibility: hidden; width:61%">
+									</div>
+									 <div class="columnform2">
+								 <img src="./img/down.JPG" alt="non-comfortable" id='pic2_IS' style="visibility: hidden; width:61%">
+									</div>
+									 </div>
+
+
+		<div class="form-popup" id="myForm_IS">
+
+		<form  class="form-container">
+		 <h1>Data Entry Iscah</h1>
+
+		 <label for="AC"><b>What is your upper comfort temprature?</b></label>
+		 <input type="number" placeholder="36" id="upt_IS" name="upt" required>
+
+		 <label for="window"><b>What is your lower comfort temprature?</b></label>
+		 <input type="number" placeholder="20" id="lowt_IS" name="lowt" required>
+
+		 <label for="fan"><b>What is your upper comfort humidity?</b></label>
+		 <input type="number" placeholder="40" id="uph_IS" name="uph" required>
+
+		 <label for="tempout"><b>What is your lower comfort humidity?</b></label>
+		 <input type="number" placeholder="20" id ="lowh_IS" name="lowh" required>
+
+
+		</form>
+				<input type="submit" class="btn" id ="submit_IS" onclick="myfunction();"><br/>
+			 <button type="button" class="btn cancel" onclick="closeForm_IS()">Close</button>
+
+		</div>
+		 </div>
+				</div>
+					 </div>
+					 </div>
+				 </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="column">
+  <div class="card">
+    <div class="container">
+      <h2><button class="button" onclick="draw('MD')">Maged Dawoud</button></h2>
+        <img src="./img/Maged.png" alt="Maged"  style="width:100%">
+        <p style="text-align:right" class="title">Lebach, Saarland, Germany</p>
+        <article>
+          <div class="row">
+            <div class="column1">
+              <div class="card">
+                <div class="container" >
+          <h1>Temperature °C</h1>
+           <p id="demo7"></p>
+
+      <h1>Humidity %</h1>
+       <p id="demo8"></p>
+
+</div>
+       </div>
+          </div>
+          <div class="column1">
+            <div class="card">
+              <div class="container">
+								<div style="width:100%;text-align:center;margin:0 auto">
+									<h1>Comfort Status</h1>
+									<button class="button" onclick="openForm_MD()">Open Form</button>
+								 <div class="containerform">
+									 <div class="columnform1">
+								 <img src="./img/up.JPG" alt="comfortable" id='pic_MD' style="visibility: hidden; width:61%">
+									</div>
+									 <div class="columnform2">
+								 <img src="./img/down.JPG" alt="non-comfortable" id='pic2_MD' style="visibility: hidden; width:61%">
+									</div>
+									 </div>
+
+
+		<div class="form-popup" id="myForm_MD">
+
+		<form  class="form-container">
+		 <h1>Data Entry Maged</h1>
+
+		 <label for="AC"><b>What is your upper comfort temprature?</b></label>
+		 <input type="number" placeholder="36" id="upt_MD" name="upt" required>
+
+		 <label for="window"><b>What is your lower comfort temprature?</b></label>
+		 <input type="number" placeholder="20" id="lowt_MD" name="lowt" required>
+
+		 <label for="fan"><b>What is your upper comfort humidity?</b></label>
+		 <input type="number" placeholder="40" id="uph_MD" name="uph" required>
+
+		 <label for="tempout"><b>What is your lower comfort humidity?</b></label>
+		 <input type="number" placeholder="20" id ="lowh_MD" name="lowh" required>
+
+
+		</form>
+				<input type="submit" class="btn" id ="submit_MD" onclick="myfunction();"><br/>
+			 <button type="button" class="btn cancel" onclick="closeForm_MD()">Close</button>
+
+		</div>
+		 </div>
+				</div>
+					 </div>
+					 </div>
+				 </article>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="column">
+  <div class="card">
+    <div class="container">
+      <h2><button class="button" onclick="draw('MS')">Mahmoud Salem</button></h2>
+        <img src="./img/Mahmoud.png" alt="Mahmoud"  style="width:100%">
+        <p style="text-align:right" class="title">Fayoum, Egypt</p>
+        <article>
+          <div class="row">
+            <div class="column1">
+              <div class="card">
+                <div class="container" >
+          <h1>Temperature °C</h1>
+           <p id="demo9"></p>
+
+      <h1>Humidity %</h1>
+       <p id="demo10"></p>
+
+</div>
+       </div>
+          </div>
+          <div class="column1">
+            <div class="card">
+              <div class="container">
+								<div style="width:100%;text-align:center;margin:0 auto">
+									<h1>Comfort Status</h1>
+									<button class="button" onclick="openForm_MS()">Open Form</button>
+								 <div class="containerform">
+									 <div class="columnform1">
+								 <img src="./img/up.JPG" alt="comfortable" id='pic_MS' style="visibility: hidden; width:61%">
+									</div>
+									 <div class="columnform2">
+								 <img src="./img/down.JPG" alt="non-comfortable" id='pic2_MS' style="visibility: hidden; width:61%">
+									</div>
+									 </div>
+
+
+		<div class="form-popup" id="myForm_MS">
+
+		<form  class="form-container">
+		 <h1>Data Entry Mahmoud</h1>
+
+		 <label for="AC"><b>What is your upper comfort temprature?</b></label>
+		 <input type="number" placeholder="36" id="upt_MS" name="upt" required>
+
+		 <label for="window"><b>What is your lower comfort temprature?</b></label>
+		 <input type="number" placeholder="20" id="lowt_MS" name="lowt" required>
+
+		 <label for="fan"><b>What is your upper comfort humidity?</b></label>
+		 <input type="number" placeholder="40" id="uph_MS" name="uph" required>
+
+		 <label for="tempout"><b>What is your lower comfort humidity?</b></label>
+		 <input type="number" placeholder="20" id ="lowh_MS" name="lowh" required>
+
+
+		</form>
+				<input type="submit" class="btn" id ="submit_MS" onclick="myfunction();"><br/>
+			 <button type="button" class="btn cancel" onclick="closeForm_MS()">Close</button>
+
+		</div>
+		 </div>
+				</div>
+					 </div>
+					 </div>
+				 </article>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="column">
+  <div class="card">
+    <div class="container">
+      <h2><button class="button" onclick="draw('MM')">Mirna Mohamed</button></h2>
+        <img src="./img/Merna.png" alt="Merna"  style="width:100%">
+        <p style="text-align:right" class="title">Cairo, Egypt</p>
+        <article>
+          <div class="row">
+            <div class="column1">
+              <div class="card">
+                <div class="container" >
+          <h1>Temperature °C</h1>
+           <p id="demo11"></p>
+
+      <h1>Humidity %</h1>
+       <p id="demo12"></p>
+   </div>
+       </div>
+          </div>
+          <div class="column1">
+            <div class="card">
+              <div class="container">
+								<div style="width:100%;text-align:center;margin:0 auto">
+									<h1>Comfort Status</h1>
+									<button class="button" onclick="openForm_MM()">Open Form</button>
+								 <div class="containerform">
+									 <div class="columnform1">
+								 <img src="./img/up.JPG" alt="comfortable" id='pic_MM' style="visibility: hidden; width:61%">
+									</div>
+									 <div class="columnform2">
+								 <img src="./img/down.JPG" alt="non-comfortable" id='pic2_MM' style="visibility: hidden; width:61%">
+									</div>
+									 </div>
+
+
+		<div class="form-popup" id="myForm_MM">
+
+		<form  class="form-container">
+		 <h1>Data Entry Mirna</h1>
+
+		 <label for="AC"><b>What is your upper comfort temprature?</b></label>
+		 <input type="number" placeholder="36" id="upt_MM" name="upt" required>
+
+		 <label for="window"><b>What is your lower comfort temprature?</b></label>
+		 <input type="number" placeholder="20" id="lowt_MM" name="lowt" required>
+
+		 <label for="fan"><b>What is your upper comfort humidity?</b></label>
+		 <input type="number" placeholder="40" id="uph_MM" name="uph" required>
+
+		 <label for="tempout"><b>What is your lower comfort humidity?</b></label>
+		 <input type="number" placeholder="20" id ="lowh_MM" name="lowh" required>
+
+
+		</form>
+				<input type="submit" class="btn" id ="submit_MM" onclick="myfunction();"><br/>
+			 <button type="button" class="btn cancel" onclick="closeForm_MM()">Close</button>
+
+		</div>
+		 </div>
+				</div>
+					 </div>
+					 </div>
+				 </article>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+ <script>
+var temp=[0,0,0,0,0,0];
+var hum=[];
+var temp_topic;
+var person='';
+
+var client = mqtt.connect('mqtt://c55d2c97:dd45c46eed620082@broker.shiftr.io', {
+  clientId: 'javascript'
+});
+
+client.on('connect', function(){
+  console.log('client has connected!');
+});
+
+
+person = ['AS','AH','IS','MD','MS','MM'];
+setInterval(function(){
+
+
+for (var i=0 ; i< person.length ; i++){
+
+  client.subscribe('temperature_'+ person[i]);
+  client.subscribe('humidity_'+ person[i]);
+  }
+  }, 2000);
+
+client.on('message', function(topic, message) {
+if (topic=='temperature_' + person[0]){
+temp[0]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('temperature_'+ person[0]);
+}
+else if (topic=='temperature_' + person[1]){
+temp[1]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('temperature_'+ person[1]);
+}
+else if (topic=='temperature_' + person[2]){
+temp[2]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('temperature_'+ person[2]);
+}
+else if (topic=='temperature_' + person[3]){
+temp[3]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('temperature_'+ person[3]);
+}
+else if (topic=='temperature_' + person[4]){
+temp[4]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('temperature_'+ person[4]);
+}
+else if (topic=='temperature_' + person[5]){
+temp[5]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('temperature_'+ person[5]);
+}
+else if (topic=='humidity_' + person[0]){
+hum[0]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('humidity_'+ person[0]);
+}
+else if (topic=='humidity_' + person[1]){
+hum[1]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('humidity_'+ person[1]);
+}
+else if (topic=='humidity_' + person[2]){
+hum[2]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('humidity_'+ person[2]);
+}
+else if (topic=='humidity_' + person[3]){
+hum[3]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('humidity_'+ person[3]);
+}
+else if (topic=='humidity_' + person[4]){
+hum[4]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('humidity_'+ person[4]);
+}
+else if (topic=='humidity_' + person[5]){
+hum[5]= parseInt(message,10);
+console.log("topic: " + topic + ","  + temp);
+client.unsubscribe('humidity_'+ person[5]);
+}
+
+
+for (var i=0 ; i< person.length ; i++){
+
+  console.log('temp'+ i+ temp[i]);
+  console.log('hum'+ i+ hum[i]);
+  }
+
+});
+setInterval(function(){
+
+var temperature_AS = temp[0];
+           document.getElementById("demo1").innerHTML = temperature_AS;
+   var humidity_AS = hum[0];
+  document.getElementById("demo2").innerHTML = humidity_AS;
+   var temperature_AH = temp[1];
+         document.getElementById("demo3").innerHTML = temperature_AH;
+var humidity_AH = hum[1];
+document.getElementById("demo4").innerHTML = humidity_AH;
+  var temperature_IS = temp[2];
+           document.getElementById("demo5").innerHTML = temperature_IS;
+    var humidity_IS = hum[2];
+  document.getElementById("demo6").innerHTML = humidity_IS;
+   var temperature_MD = temp[3];
+           document.getElementById("demo7").innerHTML = temperature_MD;
+    var humidity_MD = hum[3];
+  document.getElementById("demo8").innerHTML = humidity_MD;
+  var temperature_MS = temp[4];
+           document.getElementById("demo9").innerHTML = temperature_MS;
+     var humidity_MS = hum[4];
+  document.getElementById("demo10").innerHTML = humidity_MS;
+   var temperature_MM = temp[5];
+           document.getElementById("demo11").innerHTML = temperature_MM;
+  var humidity_MM = hum[5];
+  document.getElementById("demo12").innerHTML = humidity_MM;
+person = ['AS','AH','IS','MD','MS','MM'];
+
+for (var i=0 ; i<= person.length ; i++){
+
+  client.unsubscribe('temperature_'+ person[i]);
+  client.unsubscribe('humidity_'+ person[i]);
+  }
+  for (var i=0 ; i<= person.length ; i++){
+
+  client.subscribe('temperature_'+ person[i]);
+  client.subscribe('humidity_'+ person[i]);
+  }
+}, 3000);
+
+
+setInterval( function myfunction() {
+
+ rotating();
+
+},3000)
+
+  function rotating(){
+  for (var i=0 ; i< person.length ; i++){
+
+  var tempe=[];
+  var humid =[];
+  var upt ;
+  var lowt;
+  var uph;
+  var lowh;
+   tempe=temp;
+   humid=hum
+
+    upt= document.getElementById("upt_"+person[i]).value;
+  lowt = document.getElementById("lowt_"+person[i]).value;
+   uph = document.getElementById("uph_"+person[i]).value;
+   lowh = document.getElementById("lowh_"+person[i]).value;
+<!-- based on standard filling-->
+
+   if (upt==''){upt=27;}
+   if (lowt==''){lowt=21;}
+   if (uph==''){uph=60;}
+   if (lowh==''){lowh=30;}
+
+
+
+
+   if (tempe[i]>=lowt && tempe[i]<=upt && humid[i]>=lowh && humid[i]<=uph && lowh!=0 && lowt!=0) {  document.getElementById("pic_"+person[i]).style.visibility = "visible";
+
+  document.getElementById("pic2_"+person[i]).style.visibility = "hidden";}
+  else if (tempe[i]<lowt || tempe[i]>upt || humid[i]<lowh || humid[i]>uph && lowh!=0 && lowt!=0)
+  { document.getElementById("pic2_"+person[i]).style.visibility = "visible";
+  document.getElementById("pic_"+person[i]).style.visibility = "hidden";}
+  else { document.getElementById("pic2_"+person[i]).style.visibility = "hidden";
+  document.getElementById("pic_"+person[i]).style.visibility = "hidden";}
+}
+}
+
+
+
+function openForm() {document.getElementById("myForm").style.display = "block";}
+function closeForm() {document.getElementById("myForm").style.display = "none";}
+
+function openForm_AH() {document.getElementById("myForm_AH").style.display = "block";}
+function closeForm_AH() {document.getElementById("myForm_AH").style.display = "none";}
+
+function openForm_IS() {document.getElementById("myForm_IS").style.display = "block";}
+function closeForm_IS() {document.getElementById("myForm_IS").style.display = "none";}
+
+function openForm_MD() {document.getElementById("myForm_MD").style.display = "block";}
+function closeForm_MD() {document.getElementById("myForm_MD").style.display = "none";}
+
+function openForm_MS() {document.getElementById("myForm_MS").style.display = "block";}
+function closeForm_MS() {document.getElementById("myForm_MS").style.display = "none";}
+
+function openForm_MM() {document.getElementById("myForm_MM").style.display = "block";}
+function closeForm_MM() {document.getElementById("myForm_MM").style.display = "none";}
+
+
+//function (){
+
+
+//}
+
+//setInterval(function(){
+//console.log('1');
+//},1000);
+
+  function draw(person){
+  window.location.href="graphs_merna.html?person=" + person;
+  }
+ // });
+
+  </script>
+
+
+
+</body>
+</html>

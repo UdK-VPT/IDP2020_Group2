@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Comfortable Together 2020</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<style></style>-->
+</head>
+<body>
+
+<!--<div class="header">
+  <h1>comfortable together</h1>
+  <p>your way of comfortable life style.</p>
+</div>-->
+<div class="content">
+
+
+    <div class="column11">
+    <div class="header">
+    <div id="containerlogo">
+        <div id="logo">
+          <div id="lineLong" class="line"></div>
+          <div id="lineShort1"class="line"></div>
+          <div id="circleOne" class="circle"></div>
+          <div id="circleTwo" class="circle"></div>
+          <div id="circleThree" class="circle"></div>
+          <div id="lineShort2"class="line"></div>
+          <div id="circleFour" class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column11">
+<div class="header">
+  <br><br><br><br>
+  <h1 style="font-size:50px; text-align: center; font-family:WildWest">Comfortable Together</h1>
+</div>
+</div>
+
+  <div class="column12">
+  <img src="./img/klab.JPG" style="height: 100%; width: 100%;">
+      </div>
+
+    </div>
+<!-- header end-->
+
+<div class="navbar">
+  <button style="background-color:#333" class="right" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+  <button  style="background-color:#333" class="right" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">New member? Sign Up</button>
+</div>
+<!-- sign up form-->
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form  id="form02"class="modal-content" action="/action_page2.php">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+          <button type="submit" id="siup" >Sign Up</button>
+        <button type="button" id="cncl"  onclick="document.getElementById('id02').style.display='none'">Cancel</button>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<!-- sign in form-->
+<div id="id01" class="modal">
+  <form id="form01" class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="./img/avt.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input id="form01-uname" type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input id="form01-psw" type="password" placeholder="Enter Password" name="psw" required>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me </label>
+        <br><br>
+        <div class="clearfix">
+      <button  class="cancelbtn" style="background-color: #7CFC00;" type="submit"> Login </button>
+<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+    </div>
+
+    <div class="clearfix">
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+<!--Group2 present special thanks to Eng Ahmed Mokhtar at the coming script-->
+
+var form= document.getElementById('form01');
+form.onsubmit=function(event) {
+    event.preventDefault();
+    const unameDom = document.getElementById('form01-uname');
+    const uname = unameDom.value;
+    const pswDom = document.getElementById('form01-psw');
+    const psw = pswDom.value;
+
+    if (uname == 'Ahmed' && psw == '1234') {
+      document.location = './login1.html';
+    }
+    else if (uname == 'Ayman' && psw == '1234') {
+      document.location = './login2.html';
+    }
+    else if (uname == 'Iscah' && psw == '1234') {
+      document.location = './login3.html';
+    } else if (uname == 'Maged' && psw == '1234') {
+      document.location = './login4.html';
+    } else if (uname == 'Mahmoud' && psw == '1234') {
+      document.location = './login5.html';
+    } else if (uname == 'Merna' && psw == '1234') {
+      document.location = './login6.html';
+    }
+    else {
+      alert('Wrong username or password');
+    }
+  }
+</script>
+<!-- after navbar start*-->
+<div class="row">
+  <div class="side">
+    <h2>About the Website</h2><br>
+    <div class="myimg" style="height:200px;">
+<img src="./img/TUBerlin_Logo.png" style="height: 110%; width: 100%;">
+    </div>
+    <br><br>
+    <p style="text-align:center"><b>Comfortable Together</b> is designed by some of the Energy Engineering students at Technische Universität Berlin.</p>
+    <br>
+<p style="text-align:center"><b>Comfortable Together</b> is a brilliant website helps you to be an active part of your environment.</p>
+<br>
+<p style="text-align:center; "><b>Join Us,</b></p>
+<br>
+<h2 style="text-align:center; font-style: italic;">Be Brilliant...</h2>
+
+<br><br><br><br>
+<h2>User Instructions</h2>
+<p>1. Buy the DHT-11 sensor & the NodeMCU</p>
+<p>2. Sign up as a group administrator</p>
+<p>3. Fill in your personal data and the group data</p>
+<p>4. Send an invitation to all your group members</p>
+<p>5. Contact us or watch the tutorial to help in setting up your sensor</p>
+
+
+
+<br><br><br><br>
+<h2>Visit Us</h2>
+<table>
+  <tr>
+    <th style="text-align:center"><a href="#" class="fa fa-facebook"></a></th>
+    <th>Facebook</th>
+  </tr>
+  <tr>
+    <td style="text-align:center"><a href="#" class="fa fa-twitter"></a></td>
+    <th>Twitter</th>
+  </tr>
+  <tr>
+    <td style="text-align:center"><a href="#" class="fa fa-linkedin"></a></td>
+    <th>LinkedIn</th>
+  </tr>
+  <tr>
+    <td style="text-align:center"><a href="#" class="fa fa-youtube"></a></td>
+    <th>Youtube</th>
+  </tr>
+  <tr>
+    <td style="text-align:center"><a href="#" class="fa fa-instagram"></a></td>
+    <th>Instagram</th>
+  </tr>
+
+</table>
+
+
+
+  </div>
+  <div class="main">
+    <h2>What is Comfortable Together</h2>
+    <div class="myimg" style="height:400px;">
+<img src="./img/whatis.JPEG" style="height: 100%; width: 100%;">
+    </div>
+    <p style="text-align:justify">
+      Allows you and your team to create your own personal comfort zones regarding
+       some factors as illumination comfort, sound comfort, Temperature comfort and
+        Humidity comfort. the Websites connects the location of all members and using
+        the several standards codes an analysis is done to the measured data, then feedback
+         is given whether the user is in the comfort zone or not. If the user is not in the
+          comfort zone the websites give suggestions to the user to allow him with the standard
+          limit of the comfortable zone, if the user is still not comfortable feedback is
+           taken from the user and accordingly other suggestions are given to the user and this process
+            is repeated until the user is comfortable and then the standard comfortable ranges are adjusted
+             to his personal comfort. Finally, the measurement data of each of the team members are represented
+              on the website in form of chart giving a final indication whether the overall group is
+               comfortable or not. </p>
+    <br>
+    <h2>Why to Choose Comfortable Together</h2>
+    <div class="myimg" style="height:400px;">
+<img src="./img/whyto.JPEG" style="height: 100%; width: 100%;">
+    </div>
+    <p style="text-align:justify" >
+      Studies found that Comfortability in workspace area made people around 12% more productive.
+Studies indicate that high-quality classroom environments help children feel safe, secure,
+ and valued. As a result, self-esteem increases, and students are motivated to engage in the learning process.
+  The environment can facilitate or discourage interactions among people. The environment can influence peoples'
+  behavior and motivation to act. The environment can influence mood.  Rooms with bright light, both natural
+   and artificial, can improve health outcomes such as depression, agitation, and sleep. Comfortability
+   is a major factor in war as well. Comfortable Together helps you to optimize your comfort status thus
+    being able to overcome all your challenges throughout the day.</p>
+
+    <br>
+    <h2>Our Device</h2>
+    <p>This is a cheap core of our device but yet efficient</p>
+    <div class="myimg" style="height:300px;">
+<img src="./img/our_Device.JPEG" style="height: 100%; width: 100%;">
+    </div>
+    <p style="text-align:center"><b>
+      "Happiness is the highest
+form of health"</b></p>
+<p style="text-align:center; font: italic;">Dalai Lama</p>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Important Links</h2>
+  <a href="./feedback.html" style="color: black">Feedback</a>
+  <br>
+  <a href="./about.html" style="color: black">Contact Us</a>
+  <br>
+  <a href="./references.html" style="color: black">Referances</a>
+</div>
+
+</body>
+</html>

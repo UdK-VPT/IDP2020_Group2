@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="index.css">
+<!--<style></style>-->
+</head>
+<body>
+
+  <div class="content">
+
+
+      <div class="column11">
+      <div class="header">
+      <div id="containerlogo">
+          <div id="logo">
+            <div id="lineLong" class="line"></div>
+            <div id="lineShort1"class="line"></div>
+            <div id="circleOne" class="circle"></div>
+            <div id="circleTwo" class="circle"></div>
+            <div id="circleThree" class="circle"></div>
+            <div id="lineShort2"class="line"></div>
+            <div id="circleFour" class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column11">
+  <div class="header">
+    <br><br><br><br>
+    <h1 style="font-size:50px; text-align: center; font-family:WildWest">Comfortable Together</h1>
+  </div>
+  </div>
+
+    <div class="column12">
+    <img src="./img/klab.JPG" style="height: 100%; width: 100%;">
+        </div>
+
+      </div>
+      <div class="navbar">
+        <a class="navbar" href="./index.html">Home</a>
+        <button class="navbar" onclick="openPage('mycomfort', this)" id="defaultOpen">My Comfortability</button>
+        <button class="navbar" onclick="openPage('MyGroup', this)">My Group</button>
+        <button class="navbar" onclick="openPage('premium', this)">Premium</button>
+        <!--  <button class="navbar" onclick="openPage('weather', this)">weather</button>-->
+      </div>
+
+<div id="mycomfort" class="tabcontent">
+  <iframe src="./Iscah.html" width="100%" height="100%" ></iframe>
+</div>
+
+<div id="MyGroup" class="tabcontent">
+  <iframe src="./MyGroup.html" width="100%" height="100%" ></iframe>
+
+</div>
+
+<div id="premium" class="tabcontent">
+<iframe src="./premium.html" width="100%" height="100%" ></iframe>
+</div>
+
+<div id="weather" class="tabcontent">
+<iframe src="./weather.html" width="100%" height="100%" ></iframe>
+</div>
+
+
+
+
+<script>
+function openPage(pageName,elmnt) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>

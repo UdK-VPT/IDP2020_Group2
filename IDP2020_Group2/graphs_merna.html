@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="graphs_merna.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://assets.shiftr.io/js/mqtt-2.9.0.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  </head>
+  <body>
+
+
+
+
+    <div class="about-section">
+      <h1>Analysis</h1>
+      <p>This page shows the temperature and humidity graphs</p>
+      <p>Here you can start your own analysis</p>
+    </div>
+
+<div class="container">
+  <div class="column1">
+<h1 style="text-align:center; color:#500">Temperature Analysis</h1>
+	<div id="chartContainer" style="height: 300px; width: 90%;"></div>
+  <h1 style="text-align:center; color:#500">Humidity Analysis</h1>
+	<div id="chartContainer1" style="height: 300px; width: 90%;"></div>
+  </div>
+
+
+  <div class="column2">
+	<h1 style="text-align:center; color:#500">  Comfort Analysis</h1>
+<h2>Temprature Standard Status: </h2><P id="demo"></P>
+<h2>Humidity Standard Status: </h2><p id="demo1"></p>
+<h2>Sugesstions: </h2><p id="demo2"></p>
+<img src="./img/ARROW.png" style="float:right; width: 40%;">
+
+<button class="open-button" onclick="openForm()">Start Analysis</button>
+
+
+<div class="form-popup" id="myForm">
+
+  <form  class="form-container">
+    <h1>Data Entry :</h1>
+
+    <label for="AC"><b>Do you have an AC?</b></label>
+    <input type="text" placeholder="Y/N" id="AC" name="AC" required>
+
+    <label for="window"><b>Do you have a window?</b></label>
+    <input type="text" placeholder="Y/N" id="Window" name="window" required>
+
+    <label for="fan"><b>Do you have a Fan?</b></label>
+    <input type="text" placeholder="Y/N" id="Fan" name="fan" required>
+
+    <label for="tempout"><b>What is the outside Temprature?</b></label>
+    <input type="number" placeholder="30" id ="tempout" name="tempout" required>
+
+    <label for="comfortstatus"><b>Are you comfortable?</b></label>
+    <input type="text" placeholder="Y/N" id="comfortstatus" name="comfortstatus" required>
+
+
+  </form>
+      <input type="submit" class="btn" onclick="myfunction();"><br/>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
+</div>
+</div>
+
+
+	<script>
+
+
+// run this function when the document has loaded
+//$(function()
+//{
+	var x=0;
+	var y;
+	var temp=0;
+	var hum=0;
+	var temp_topic;
+	var dps =[];
+	var dps1 =[];
+	var dataLength = 10;
+	var updateInterval = 1000;
+	var xVal = 0;
+	var yVal = 0;
+	var chart;
+	var chart1;
+	var person = '';
+
+
+var client = mqtt.connect('mqtt://c55d2c97:dd45c46eed620082@broker.shiftr.io', {
+  clientId: 'javascript'
+});
+
+client.on('connect', function(){
+  console.log('client has connected!');
+});
+
+var url = window.location.href;
+person = url.split("=")[1];
+
+  client.subscribe('temperature_'+ person);
+  client.subscribe('humidity_' + person);
+
+
+client.on('message', function(topic, message) {
+
+	if (topic=='temperature_' + person){
+		temp= parseInt(message,10);
+		console.log("topic: " + topic + ","  + temp);
+
+	}
+	else if(topic=='humidity_' + person){
+		hum= parseInt(message,10);
+		console.log("topic: " + topic + ","  + hum);
+
+	}
+
+//temp_topic=topic;
+
+
+
+	});
+	setInterval(function(){
+		//console.log('new message:', temp_topic ,temp);
+
+		//temp=temp;
+
+	}, 1000);
+
+console.log(typeof (x));
+function drawChart(){
+	 chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		theme: "light2",
+		title:{
+			text: "Change in Temprature(°C) with Time(sec)"
+		},
+		axisY:{
+			includeZero: false
+   },
+		data: [{
+			type: "spline",
+			indexLabelFontSize: 16,
+			dataPoints: dps
+		}]
+	});
+}
+drawChart();
+var flag=0;
+function update_chart(count){
+
+
+count= count || 1 ;
+
+
+if(temp == 0){
+	flag = 1;
+	return;
+
+}
+for (var j = 0; j < count; j++) {
+		//debugger
+		if(flag == 1){
+			count = 10;
+			flag=0;
+		}
+
+		yVal = temp;
+		dps.push({
+			x: xVal,
+			y: yVal
+		});
+		xVal++;
+	}
+	if (dps.length > dataLength) {
+		dps.shift();
+	}
+chart.render();
+
+};
+
+	update_chart(dataLength);
+	setInterval(function(){ update_chart() }, updateInterval);
+
+
+	function drawChart1(){
+	 chart1 = new CanvasJS.Chart("chartContainer1", {
+		animationEnabled: true,
+		theme: "light2",
+		title:{
+			text: "Change in Humidity(%) with Time(sec)"
+		},
+		axisY:{
+			includeZero: false
+    },
+		data: [{
+			type: "spline",
+			indexLabelFontSize: 16,
+			dataPoints: dps1
+		}]
+	});
+}
+drawChart1();
+var flaghum=0;
+function update_chart_hum(count1){
+
+
+count1= count1 || 1 ;
+
+
+if(hum == 0){
+	flaghum = 1;
+	return;
+
+}
+for (var j = 0; j < count1; j++) {
+		//debugger
+		if(flaghum == 1){
+			count1 = 10;
+			flaghum=0;
+		}
+
+		yVal = hum;
+		dps1.push({
+			x: xVal,
+			y: yVal
+		});
+		xVal++;
+	}
+	if (dps1.length > dataLength) {
+		dps1.shift();
+	}
+chart1.render();
+
+};
+
+	update_chart_hum(dataLength);
+	setInterval(function(){ update_chart_hum() }, updateInterval);
+
+
+
+var sugesstion="";
+function myfunction() {
+  var AC = document.getElementById("AC").value;
+  var Fan = document.getElementById("Fan").value;
+  var Window = document.getElementById("Window").value;
+  var tempout = document.getElementById("tempout").value;
+  var comfortstatus= document.getElementById("comfortstatus").value;
+  var tempe=temp;
+  var humid=hum;
+  var status=statusfun(tempe,humid);
+  var firstValue=status[0]; //get first return value
+  var secondValue=status[1]; //get second return value
+  if (comfortstatus=="Y")
+  {var finalstatus="Comfortable";
+   sugesstion="No sugesstions";}
+  if (comfortstatus=="N"){
+  var care=prompt("Is it hot or cold?", "H/C?");
+  var sugesstion=sugesstionfun(AC,Fan,Window,tempe,humid,tempout,care);}
+  document.getElementById("demo").innerHTML = firstValue;
+  document.getElementById("demo1").innerHTML = secondValue;
+  document.getElementById("demo2").innerHTML = sugesstion;
+  document.getElementById("myForm").style.display = "none";}
+
+
+function openForm() {document.getElementById("myForm").style.display = "block";}
+
+function closeForm() {document.getElementById("myForm").style.display = "none";}
+
+function sugesstionfun(AC,Fan,Window,tempe,humid,tempout,care) {
+  if (care=="H"){
+  if ( tempout-tempe>=6) {
+  if (AC=="N"  && Fan=="Y" && Window=="Y"){sugesstion="Open the fan";}
+  if (AC=="Y"  && Fan=="Y" && Window=="Y"){sugesstion="Open the AC and if opened decrese the temprature";}
+  if (AC=="Y"  && Fan=="Y" && Window=="N"){sugesstion="Open the AC and if opened decrease the temprature";}
+  if (AC=="N"  && Fan=="N" && Window=="N"){sugesstion="Sorry we can't help you";}
+  if (AC=="N"  && Fan=="N" && Window=="Y"){sugesstion="Sorry we can't help you";}
+  if (AC=="Y"  && Fan=="N" && Window=="N"){sugesstion="Open the AC and if opened decrese the temprature";}
+  if (AC=="N"  && Fan=="Y" && Window=="N"){sugesstion="Sorry we can't help you";}
+  if (AC=="Y"  && Fan=="N" && Window=="Y"){sugesstion="Open the AC and if opened decrese the temprature";} }
+
+  if ( tempout-tempe<6) {
+
+  if (AC=="N"  && Fan=="Y" && Window=="Y"){sugesstion="Open the fan and the window";}
+  if (AC=="Y"  && Fan=="Y" && Window=="Y"){sugesstion="Open the fan and the window";}
+  if (AC=="Y"  && Fan=="Y" && Window=="N"){sugesstion="Open the fan";}
+  if (AC=="N"  && Fan=="N" && Window=="N"){sugesstion="Sorry we can't help you";}
+  if (AC=="N"  && Fan=="N" && Window=="Y"){sugesstion="Open the window";}
+  if (AC=="Y"  && Fan=="N" && Window=="N"){sugesstion="Open the AC and if opened decrese the temprature";}
+  if (AC=="N"  && Fan=="Y" && Window=="N"){sugesstion="Open the fan";}
+  if (AC=="Y"  && Fan=="N" && Window=="Y"){sugesstion="Open the window";} } }
+
+if (care=="C") {
+  if (AC=="N"  && Fan=="Y" && Window=="Y"){sugesstion="Close the window or the fan if they are opened";}
+  if (AC=="Y"  && Fan=="Y" && Window=="Y"){sugesstion="Close the window and the fan and open the AC on heater mode, if already opened increase the temprature";}
+  if (AC=="Y"  && Fan=="Y" && Window=="N"){sugesstion="Close the fan if opened and open the AC on the heater mode, if already opened increase the temprature ";}
+  if (AC=="N"  && Fan=="N" && Window=="N"){sugesstion="Sorry we can't help you";}
+  if (AC=="N"  && Fan=="N" && Window=="Y"){sugesstion="Close the window if opened";}
+  if (AC=="Y"  && Fan=="N" && Window=="N"){sugesstion="Open the AC on the heater mode, if already opened increase the temprature";}
+  if (AC=="N"  && Fan=="Y" && Window=="N"){sugesstion="Close the fan if opened";}
+  if (AC=="Y"  && Fan=="N" && Window=="Y"){sugesstion="Close the window if opened and open the AC on the heater mode, if already opened increase the temprature";} }
+  return [sugesstion];}
+
+
+  function statusfun(tempe,humid) {
+  if (tempe <= 26 && tempe >= 20) {Tsatus="You are within the standerd temprature comfort zone";}
+  else {Tsatus="You are outside the standerd temprature comfort zone";}
+  if (humid <= 60 && humid >= 20) {Hstatus="You are within the standerd humidty comfort zone";}
+  else {Hstatus="You are outside the standerd humidty comfort zone";}
+  return [Tsatus, Hstatus]; }
+
+</script>
+
+  </body>
+
+
+</html>
